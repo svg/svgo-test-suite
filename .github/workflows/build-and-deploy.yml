@@ -1,0 +1,34 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build test suite
+        run: |
+          mkdir -p svgs/W3C_SVG_11_TestSuite dist
+          wget https://www.w3.org/Graphics/SVG/Test/20110816/archives/W3C_SVG_11_TestSuite.tar.gz
+          tar -tf W3C_SVG_11_TestSuite.tar.gz | grep -E '^svg/.+\.svgz?$' > filter.txt
+          tar -C svgs/W3C_SVG_11_TestSuite -xf W3C_SVG_11_TestSuite.tar.gz -T filter.txt
+          wget https://download.kde.org/stable/frameworks/5.113/oxygen-icons-5.113.0.tar.xz
+          tar -tf oxygen-icons-5.113.0.tar.xz | grep -E '\.svgz?$' > filter.txt
+          tar -C svgs -xf oxygen-icons-5.113.0.tar.xz -T filter.txt
+          find svgs -type l -delete
+          find svgs -type f -name "*.svgz" -exec sh -c '7z e -so {} > $(echo {} | sed s/\.svgz$/\.svg/)' \; -delete
+          find svgs -type f -exec bash -c 'if [ $(file -bi {} | sed -e "s/.* charset=//") == 'utf-16le' ]; then echo "$(iconv -f utf-16le -t utf-8 {})" > {}; fi' \;
+          tar czf dist/svgo-test-suite.tar.gz svgs/*
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
