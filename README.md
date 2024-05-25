@@ -18,6 +18,7 @@ Here are the differences between the repack and the originals:
 * Excludes symlinks.
 * Converts SVGZ files to SVGs.
 * Includes only SVG files.
+* Deletes duplicate files.
 
 ## SVG Optimizer
 
