@@ -16,8 +16,9 @@ The contents of the archive will be optimized for the pull request pipelines of 
 Here are the differences between the repack and the originals:
 
 * Excludes symlinks.
+* Excludes non-SVG files.
 * Converts SVGZ files to SVGs.
-* Includes only SVG files.
+* Converts UTF16-LE encoded files to UTF-8.
 * Deletes duplicate files.
 
 ## SVG Optimizer
