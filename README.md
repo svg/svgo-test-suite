@@ -9,7 +9,7 @@ The contents of the archive will be optimized for the pull request pipelines of 
 | Source | License |
 |---|---|
 | [W3C SVG 1.1 Test Suite](https://www.w3.org/Graphics/SVG/Test/20110816/) | [W3C test suite license](https://www.w3.org/copyright/test-suite-license-2023) |
-| [KDE Oxygen Icons](https://download.kde.org/stable/frameworks/5.113/oxygen-icons-5.113.0.tar.xz.mirrorlist) | [LGPL-3.0](https://invent.kde.org/frameworks/oxygen-icons/-/blob/master/COPYING) |
+| [KDE Oxygen Icons](https://download.kde.org/stable/frameworks/5.116/oxygen-icons-5.116.0.tar.xz.mirrorlist) | [LGPL-3.0](https://invent.kde.org/frameworks/oxygen-icons/-/blob/master/COPYING) |
 
 ## Processing
 

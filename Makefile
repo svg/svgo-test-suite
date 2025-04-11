@@ -1,4 +1,5 @@
 ARTIFACT_NAME = svgo-test-suite
+OXYGEN_ICONS_VERSION = 5.116
 
 clean:
 	rm -rf dist
@@ -15,9 +16,9 @@ fetch-w3c-test-suite:
 
 fetch-oxygen-icons:
 	mkdir -p $(ARTIFACT_NAME)
-	wget https://download.kde.org/stable/frameworks/5.113/oxygen-icons-5.113.0.tar.xz --no-clobber
-	tar -tf oxygen-icons-5.113.0.tar.xz | grep -E '(\.svgz?$$|/COPYING.*|/AUTHORS$$)' > filter.txt
-	tar -C $(ARTIFACT_NAME) -xf oxygen-icons-5.113.0.tar.xz -T filter.txt
+	wget https://download.kde.org/stable/frameworks/$(OXYGEN_ICONS_VERSION)/oxygen-icons-$(OXYGEN_ICONS_VERSION).0.tar.xz --no-clobber
+	tar -tf oxygen-icons-$(OXYGEN_ICONS_VERSION).0.tar.xz | grep -E '(\.svgz?$$|/COPYING.*|/AUTHORS$$)' > filter.txt
+	tar -C $(ARTIFACT_NAME) -xf oxygen-icons-$(OXYGEN_ICONS_VERSION).0.tar.xz -T filter.txt
 	rm filter.txt
 
 normalize:
