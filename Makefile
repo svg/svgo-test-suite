@@ -21,6 +21,16 @@ fetch-oxygen-icons:
 	tar -C $(ARTIFACT_NAME) -xf oxygen-icons-$(OXYGEN_ICONS_VERSION).0.tar.xz -T filter.txt
 	rm filter.txt
 
+fetch-wikimedia-large:
+	wget "https://upload.wikimedia.org/wikipedia/commons/a/a1/Spain_languages-de.svg?download" --no-clobber --directory-prefix=$(ARTIFACT_NAME)/wikimedia-large
+	wget "https://upload.wikimedia.org/wikipedia/commons/d/d1/Saariston_Rengastie_route_labels.svg?download" --no-clobber --directory-prefix=$(ARTIFACT_NAME)/wikimedia-large
+	wget "https://upload.wikimedia.org/wikipedia/commons/5/5a/Mapa_do_Brasil_por_c%C3%B3digo_DDD.svg?download?download" --no-clobber --directory-prefix=$(ARTIFACT_NAME)/wikimedia-large
+	wget "https://upload.wikimedia.org/wikipedia/commons/c/c1/Propane_flame_contours-en.svg?download" --no-clobber --directory-prefix=$(ARTIFACT_NAME)/wikimedia-large
+	wget "https://upload.wikimedia.org/wikipedia/commons/f/ff/1_42_polytope_7-cube.svg?download" --no-clobber --directory-prefix=$(ARTIFACT_NAME)/wikimedia-large
+	wget "https://upload.wikimedia.org/wikipedia/commons/2/2e/Germany_%28%2Bdistricts_%2Bmunicipalities%29_location_map_2013.svg?download" --no-clobber --directory-prefix=$(ARTIFACT_NAME)/wikimedia-large
+	wget "https://upload.wikimedia.org/wikipedia/commons/7/7f/Italy_-_Regions_and_provinces.svg?download" --no-clobber --directory-prefix=$(ARTIFACT_NAME)/wikimedia-large
+	wget "https://upload.wikimedia.org/wikipedia/commons/6/60/Aegean_sea_Anatolia_and_Armenian_highlands_regions_large_topographic_basemap.svg?download" --no-clobber --directory-prefix=$(ARTIFACT_NAME)/wikimedia-large
+
 normalize:
 	find $(ARTIFACT_NAME) -type l -delete
 	find $(ARTIFACT_NAME) -type f -name "*.svgz" -exec sh -c '7z e -so {} > $$(echo {} | sed s/\.svgz$$/\.svg/)' \; -delete
@@ -44,6 +54,7 @@ package:
 build:
 	make fetch-w3c-test-suite
 	make fetch-oxygen-icons
+	make fetch-wikimedia-large
 	make normalize
 	make deduplicate
 	make package
