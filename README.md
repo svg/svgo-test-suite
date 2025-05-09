@@ -1,4 +1,4 @@
-# SVGO Test Suite [![chat](https://img.shields.io/discord/815166721315831868)](https://discord.gg/z8jX8NYxrE)
+# SVGO Test Suite [![](https://img.shields.io/discord/815166721315831868)](https://discord.gg/z8jX8NYxrE)
 
 Scripts for building a test suite of SVGs from multiple sources. The aim is to maintain an archive that's convenient and relatively efficient to pull from CI pipelines to run regression tests.
 
@@ -6,15 +6,15 @@ The contents of the archive will be optimized for the pull request pipelines of 
 
 ## Sources
 
-| Source | License |
-|---|---|
-| [W3C SVG 1.1 Test Suite](https://www.w3.org/Graphics/SVG/Test/20110816/) | [W3C test suite license](https://www.w3.org/copyright/test-suite-license-2023) |
-| [KDE Oxygen Icons](https://download.kde.org/stable/frameworks/5.116/oxygen-icons-5.116.0.tar.xz.mirrorlist) | [LGPL-3.0](https://invent.kde.org/frameworks/oxygen-icons/-/blob/master/COPYING) |
-| [Wikimedia Icons](https://commons.wikimedia.org/wiki/Main_Page) | TBD |
+SVGO Test Suite includes files from the following sources. We use [REUSE](https://reuse.software/) to annotate each file with the respective license, attribution, and copyright information within the distributed archive.
+
+* [W3C SVG 1.1 Test Suite](https://www.w3.org/Graphics/SVG/Test/20110816/)
+* [KDE Oxygen Icons](https://download.kde.org/stable/frameworks/5.116/oxygen-icons-5.116.0.tar.xz.mirrorlist)
+* [Wikimedia Commons](https://commons.wikimedia.org/wiki/Category:Large_SVG_files)
 
 ## Processing
 
-Here are the differences between the repack and the originals:
+Here are the differences between the repack and the original SVGs:
 
 * Exclude symlinks.
 * Convert SVGZ files to SVGs.
