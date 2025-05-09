@@ -4,10 +4,8 @@ WIKIMEDIA_DIR = $(ARTIFACT_NAME)/wikimedia-commons
 WGET_OPTIONS = --no-clobber --no-verbose
 
 clean:
-	rm -rf dist
-	rm -rf $(ARTIFACT_NAME)
-	rm -f oxygen-icons-*.tar.xz
-	rm -f W3C_SVG_11_TestSuite.tar.gz
+	rm -rf dist $(ARTIFACT_NAME)
+	rm -f oxygen-icons-*.tar.xz W3C_SVG_11_TestSuite.tar.gz
 
 fetch-w3c-test-suite:
 	mkdir -p $(ARTIFACT_NAME)/W3C_SVG_11_TestSuite
@@ -50,6 +48,16 @@ deduplicate:
 		fi; \
 	done;
 
+licenses:
+	if [ ! -d ".venv" ]; then python3 -m venv .venv; fi
+	. .venv/bin/activate
+	pip3 install reuse
+	cp -r static/* $(ARTIFACT_NAME)
+	reuse --root $(ARTIFACT_NAME) download --all
+	reuse --root $(ARTIFACT_NAME) lint
+	reuse --root $(ARTIFACT_NAME) spdx -o $(ARTIFACT_NAME)/reuse.spdx
+	rm $(ARTIFACT_NAME)/REUSE.toml
+
 package:
 	mkdir -p dist
 	tar czf dist/$(ARTIFACT_NAME).tar.gz $(ARTIFACT_NAME)/*
@@ -60,4 +68,5 @@ build:
 	make fetch-wikimedia-commons
 	make normalize
 	make deduplicate
+	make licenses
 	make package

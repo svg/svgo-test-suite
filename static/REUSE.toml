@@ -1,0 +1,52 @@
+version = 1
+
+[[annotations]]
+path = ["oxygen-icons-*/**"]
+SPDX-FileCopyrightText = "See AUTHORS, COPYING, and COPYING.LIB in oxygen-icons-5.116.0"
+SPDX-License-Identifier = "LicenseRef-oxygen-icons-LGPL-3.0-only"
+
+[[annotations]]
+path = ["W3C_SVG_11_TestSuite/**"]
+precedence = "override"
+SPDX-FileCopyrightText = "Copyright © 2023 World Wide Web Consortium. All Rights Reserved. https://www.w3.org/copyright/test-suite-license-2023/"
+SPDX-License-Identifier = "LicenseRef-w3c-test-suite-license-2023"
+
+[[annotations]]
+path = ["wikimedia-commons/1_42_polytope_7-cube.svg"]
+SPDX-FileCopyrightText = "NONE"
+SPDX-License-Identifier = "CC0-1.0"
+
+[[annotations]]
+path = ["wikimedia-commons/Aegean_sea_Anatolia_and_Armenian_highlands_regions_large_topographic_basemap.svg"]
+SPDX-FileCopyrightText = "Copyright © ikonact using data from NASA SRTM3 v2 and SWBD"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+
+[[annotations]]
+path = ["wikimedia-commons/Germany___districts__municipalities__location_map_current.svg"]
+SPDX-FileCopyrightText = "© GeoBasis-DE / BKG 2013 according Verordnung zur Festlegung der Nutzungsbestimmungen für die Bereitstellung von Geodaten des Bundes vom 19. März 2013 (BGBl. I S. 547) (GEoNutzV)"
+SPDX-License-Identifier = "CC-BY-SA-3.0"
+
+[[annotations]]
+path = ["wikimedia-commons/Italy_-_Regions_and_provinces.svg"]
+SPDX-FileCopyrightText = "Copyright © M.casanova using data from Confini delle unità amministrative a fini statistici"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+
+[[annotations]]
+path = ["wikimedia-commons/Mapa_do_Brasil_por_c_digo_DDD.svg"]
+SPDX-FileCopyrightText = "Copyright © João Vitor Bachini"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+
+[[annotations]]
+path = ["wikimedia-commons/Propane_flame_contours-en.svg"]
+SPDX-FileCopyrightText = "Copyright © KDS444"
+SPDX-License-Identifier = "CC-BY-SA-3.0"
+
+[[annotations]]
+path = ["wikimedia-commons/Saariston_Rengastie_route_labels.svg"]
+SPDX-FileCopyrightText = "Copyright © Nelg"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+
+[[annotations]]
+path = ["wikimedia-commons/Spain_languages-de.svg"]
+SPDX-FileCopyrightText = "Copyright © Órbigo"
+SPDX-License-Identifier = "GFDL-1.2-only"
