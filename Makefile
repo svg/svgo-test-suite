@@ -50,12 +50,14 @@ deduplicate:
 
 licenses:
 	if [ ! -d ".venv" ]; then python3 -m venv .venv; fi
-	. .venv/bin/activate
-	pip3 install reuse
-	cp -r static/* $(ARTIFACT_NAME)
-	reuse --root $(ARTIFACT_NAME) download --all
-	reuse --root $(ARTIFACT_NAME) lint
-	reuse --root $(ARTIFACT_NAME) spdx -o $(ARTIFACT_NAME)/reuse.spdx
+	( \
+		. .venv/bin/activate; \
+		pip3 -q install reuse; \
+		cp -r static/* $(ARTIFACT_NAME); \
+		reuse --root $(ARTIFACT_NAME) download --all; \
+		reuse --root $(ARTIFACT_NAME) lint; \
+		reuse --root $(ARTIFACT_NAME) spdx -o $(ARTIFACT_NAME)/reuse.spdx; \
+	)
 	rm $(ARTIFACT_NAME)/REUSE.toml
 
 package:
