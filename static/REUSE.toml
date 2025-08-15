@@ -1,6 +1,11 @@
 version = 1
 
 [[annotations]]
+path = "VERSION"
+SPDX-FileCopyrightText = "SVGO and Contributors"
+SPDX-License-Identifier = "CC0-1.0"
+
+[[annotations]]
 path = "oxygen-icons-*/**"
 SPDX-FileCopyrightText = "See AUTHORS, COPYING, and COPYING.LIB in oxygen-icons-5.116.0"
 SPDX-License-Identifier = "LicenseRef-oxygen-icons-LGPL-3.0-only"
@@ -32,7 +37,7 @@ SPDX-FileCopyrightText = "Copyright © M.casanova using data from Confini delle 
 SPDX-License-Identifier = "CC-BY-SA-4.0"
 
 [[annotations]]
-path = "wikimedia-commons/Mapa_do_Brasil_por_c_digo_DDD.svg"
+path = "wikimedia-commons/Mapa_do_Brasil_por_c*.svg"
 SPDX-FileCopyrightText = "Copyright © João Vitor Bachini"
 SPDX-License-Identifier = "CC-BY-SA-4.0"
 

@@ -60,6 +60,9 @@ licenses:
 	)
 	rm $(ARTIFACT_NAME)/REUSE.toml
 
+version:
+	find $(ARTIFACT_NAME) -name '*.svg' -exec md5sum {} \; | sort | md5sum | awk '{ print $$1 }' > $(ARTIFACT_NAME)/VERSION
+
 package:
 	mkdir -p dist
 	tar czf dist/$(ARTIFACT_NAME).tar.gz $(ARTIFACT_NAME)/*
@@ -70,5 +73,6 @@ build:
 	make fetch-wikimedia-commons
 	make normalize
 	make deduplicate
+	make version
 	make licenses
 	make package
