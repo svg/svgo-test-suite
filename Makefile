@@ -38,7 +38,7 @@ normalize:
 	find $(ARTIFACT_NAME) -type f -exec bash -c 'if [ $$(file -bi {} | sed -e "s/.* charset=//") == 'utf-16le' ]; then echo "$$(iconv -f utf-16le -t utf-8 {})" > {}; fi' \;
 
 deduplicate:
-	@find $(ARTIFACT_NAME) -type f | while read FILE; \
+	@find $(ARTIFACT_NAME) -type f | sort | while read FILE; \
 	do \
 		HASH=$$(sha1sum $$FILE | awk "{ print \$$1 }"); \
 		if echo $$HASHES | grep $$HASH -q; then \
