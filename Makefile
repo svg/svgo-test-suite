@@ -56,7 +56,7 @@ licenses:
 	@if [ ! -d ".venv" ]; then python3 -m venv .venv; fi
 	@( \
 		. .venv/bin/activate; \
-		pip3 -q install reuse; \
+		pip3 -q install reuse==5.1.1; \
 		cp -r static/* $(ARTIFACT_NAME); \
 		reuse --root $(ARTIFACT_NAME) download --all; \
 		reuse --root $(ARTIFACT_NAME) lint; \
@@ -71,12 +71,4 @@ package:
 	@mkdir -p dist
 	@tar czf dist/$(ARTIFACT_NAME).tar.gz $(ARTIFACT_NAME)/*
 
-build:
-	@make fetch-w3c-test-suite
-	@make fetch-oxygen-icons
-	@make fetch-wikimedia-commons
-	@make normalize
-	@make deduplicate
-	@make version
-	@make licenses
-	@make package
+build: fetch-w3c-test-suite fetch-oxygen-icons fetch-wikimedia-commons normalize deduplicate version licenses package
