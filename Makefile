@@ -25,8 +25,9 @@ fetch-oxygen-icons:
 fetch-charm-icons:
 	@mkdir -p $(ARTIFACT_NAME)
 	@wget --no-verbose -O charm-icons-$(CHARM_ICONS_VERSION).tar.gz https://github.com/jaynewey/charm-icons/archive/refs/tags/v$(CHARM_ICONS_VERSION).tar.gz
-	@tar -C $(ARTIFACT_NAME) -xf charm-icons-$(CHARM_ICONS_VERSION).tar.gz
-	@find $(ARTIFACT_NAME)/charm-icons-$(CHARM_ICONS_VERSION) -mindepth 1 -maxdepth 1 ! -name icons ! -name LICENSE -exec rm -rf {} +
+	@tar -tf charm-icons-$(CHARM_ICONS_VERSION).tar.gz | grep -E '^charm-icons-$(CHARM_ICONS_VERSION)/(.+\.svgz?|LICENSE)$$' > filter.txt
+	@tar -C $(ARTIFACT_NAME) -xf charm-icons-$(CHARM_ICONS_VERSION).tar.gz -T filter.txt
+	@rm filter.txt
 
 fetch-wikimedia-commons:
 	@wget $(WGET_OPTIONS) "https://upload.wikimedia.org/wikipedia/commons/a/a1/Spain_languages-de.svg" --directory-prefix $(WIKIMEDIA_DIR)
