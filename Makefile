@@ -1,7 +1,7 @@
 ARTIFACT_NAME = svgo-test-suite
 OXYGEN_ICONS_VERSION = 5.116
 WIKIMEDIA_DIR = $(ARTIFACT_NAME)/wikimedia-commons
-WGET_OPTIONS = --no-clobber --no-verbose
+WGET_OPTIONS = --no-clobber --no-verbose --user-agent "svgo-test-suite bot/1.0 (https://github.com/svg/svgo-test-suite)"
 
 clean:
 	@rm -rf dist $(ARTIFACT_NAME)
