@@ -10,6 +10,7 @@ SVGO Test Suite includes files from the following sources. We use [REUSE](https:
 
 * [W3C SVG 1.1 Test Suite](https://www.w3.org/Graphics/SVG/Test/20110816/)
 * [KDE Oxygen Icons](https://download.kde.org/stable/frameworks/5.116/oxygen-icons-5.116.0.tar.xz.mirrorlist)
+* [Charm Icons](https://github.com/jaynewey/charm-icons)
 * [Wikimedia Commons](https://commons.wikimedia.org/wiki/Category:Large_SVG_files)
 
 ## Processing

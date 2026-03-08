@@ -1,11 +1,12 @@
 ARTIFACT_NAME = svgo-test-suite
 OXYGEN_ICONS_VERSION = 5.116
+CHARM_ICONS_VERSION = 0.18.0
 WIKIMEDIA_DIR = $(ARTIFACT_NAME)/wikimedia-commons
 WGET_OPTIONS = --no-clobber --no-verbose
 
 clean:
 	@rm -rf dist $(ARTIFACT_NAME)
-	@rm -f oxygen-icons-*.tar.xz W3C_SVG_11_TestSuite.tar.gz
+	@rm -f oxygen-icons-*.tar.xz charm-icons-*.tar.gz W3C_SVG_11_TestSuite.tar.gz
 
 fetch-w3c-test-suite:
 	@mkdir -p $(ARTIFACT_NAME)/W3C_SVG_11_TestSuite
@@ -20,6 +21,12 @@ fetch-oxygen-icons:
 	@tar -tf oxygen-icons-$(OXYGEN_ICONS_VERSION).0.tar.xz | grep -E '(\.svgz?$$|/COPYING.*|/AUTHORS$$)' > filter.txt
 	@tar -C $(ARTIFACT_NAME) -xf oxygen-icons-$(OXYGEN_ICONS_VERSION).0.tar.xz -T filter.txt
 	@rm filter.txt
+
+fetch-charm-icons:
+	@mkdir -p $(ARTIFACT_NAME)
+	@wget --no-verbose -O charm-icons-$(CHARM_ICONS_VERSION).tar.gz https://github.com/jaynewey/charm-icons/archive/refs/tags/v$(CHARM_ICONS_VERSION).tar.gz
+	@tar -C $(ARTIFACT_NAME) -xf charm-icons-$(CHARM_ICONS_VERSION).tar.gz
+	@find $(ARTIFACT_NAME)/charm-icons-$(CHARM_ICONS_VERSION) -mindepth 1 -maxdepth 1 ! -name icons ! -name LICENSE -exec rm -rf {} +
 
 fetch-wikimedia-commons:
 	@wget $(WGET_OPTIONS) "https://upload.wikimedia.org/wikipedia/commons/a/a1/Spain_languages-de.svg" --directory-prefix $(WIKIMEDIA_DIR)
@@ -71,4 +78,4 @@ package:
 	@mkdir -p dist
 	@tar czf dist/$(ARTIFACT_NAME).tar.gz $(ARTIFACT_NAME)/*
 
-build: fetch-w3c-test-suite fetch-oxygen-icons fetch-wikimedia-commons normalize deduplicate version licenses package
+build: fetch-w3c-test-suite fetch-oxygen-icons fetch-charm-icons fetch-wikimedia-commons normalize deduplicate version licenses package
