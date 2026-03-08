@@ -11,6 +11,11 @@ SPDX-FileCopyrightText = "See AUTHORS, COPYING, and COPYING.LIB in oxygen-icons-
 SPDX-License-Identifier = "LicenseRef-oxygen-icons-LGPL-3.0-only"
 
 [[annotations]]
+path = "charm-icons-*/**"
+SPDX-FileCopyrightText = "Copyright (c) 2021 Jay Newey"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
 path = "W3C_SVG_11_TestSuite/**"
 precedence = "override"
 SPDX-FileCopyrightText = "Copyright © 2023 World Wide Web Consortium. All Rights Reserved. https://www.w3.org/copyright/test-suite-license-2023/"
